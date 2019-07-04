@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Button } from 'antd'
+import LifeCycle from './LifeCycle'
 
 interface IState {
   toggle: boolean
@@ -20,7 +22,10 @@ const ToggleHOC = (WrappedComponent: React.ComponentType) => {
       const { toggle } = this.state
       return (
         <div>
-          <button onClick={this.handleClick}>click toggle</button>
+          <LifeCycle />
+          <Button type="primary" onClick={this.handleClick}>
+            click toggle
+          </Button>
           {toggle && <WrappedComponent />}
         </div>
       )
