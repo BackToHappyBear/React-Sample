@@ -1,26 +1,35 @@
 import { hot } from 'react-hot-loader/root'
 import React from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
+import { setConfig } from 'react-hot-loader'
+
+import Hook from './pages/Hook'
+import HOC from './pages/HOC'
+import RenderProps from './pages/RenderProps'
+
+setConfig({
+  reloadHooks: false,
+})
 
 const routes = [
   {
-    path: '/',
+    path: '/HOC',
+    name: 'HOC',
+    sidebar: () => <div>HOC!</div>,
+    component: HOC,
+  },
+  {
+    path: '/RenderProps',
+    name: 'RenderProps',
+    sidebar: () => <div>RenderProps!</div>,
+    component: RenderProps,
+  },
+  {
+    path: '/hook',
     exact: true,
-    name: 'home',
-    sidebar: () => <div>home!</div>,
-    component: () => <h2>Home</h2>,
-  },
-  {
-    path: '/bubblegum',
-    name: 'bubblegum',
-    sidebar: () => <div>bubblegum!</div>,
-    component: () => <h2>Bubblegum</h2>,
-  },
-  {
-    path: '/shoelaces',
-    name: 'shoelaces',
-    sidebar: () => <div>shoelaces!</div>,
-    component: () => <h2>Shoelaces</h2>,
+    name: 'Hook',
+    sidebar: () => <div>Hook!</div>,
+    component: Hook,
   },
 ]
 
@@ -30,7 +39,7 @@ const App: React.FC = () => {
       <div style={{ display: 'flex' }}>
         <div
           style={{
-            padding: '10px',
+            padding: '0 10px',
             width: '40%',
             height: '100vh',
             background: '#f0f0f0',
@@ -46,7 +55,8 @@ const App: React.FC = () => {
           </ul>
         </div>
 
-        <div style={{ flex: 7, padding: '10px' }}>
+        <div style={{ flex: 7, padding: '0 10px' }}>
+          <Redirect to="/HOC" />
           {routes.map((route, index) => (
             <Route key={index} path={route.path} exact={route.exact} component={route.component} />
           ))}

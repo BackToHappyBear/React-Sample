@@ -1,11 +1,20 @@
 {
-  "extends": ["tslint:react", "tslint-eslint-rules", "tslint-config-prettier"],
+  "extends": [
+    "tslint:recommended",
+    "tslint-eslint-rules",
+    "tslint-react-hooks",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": ["config/**/*.js", "node_modules/**/*.ts"]
+  },
   "rules": {
     "no-var-requires": false,
     "no-submodule-imports": false,
     "object-literal-sort-keys": false,
     "jsx-no-lambda": false,
     "no-implicit-dependencies": false,
-    "no-console": false
+    "no-console": false,
+    "react-hooks-nesting": "error"
   }
 }
