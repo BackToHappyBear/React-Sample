@@ -3,6 +3,7 @@ import { Button, Modal } from 'antd'
 import { useMousePosition } from './useMousePosition'
 import { useToggle } from './useToggle'
 import Sample from './sample'
+import OldState from './oldState'
 
 export interface IMousePositon {
   x: number
@@ -29,6 +30,7 @@ const Hook = () => {
         <p>Some contents...</p>
         <p>Some contents...</p>
       </Modal>
+      <OldState />
     </div>
   )
 }

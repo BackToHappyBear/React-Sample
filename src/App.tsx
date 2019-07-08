@@ -1,11 +1,14 @@
-import { hot } from 'react-hot-loader/root'
+// tslint:disable-next-line: ordered-imports
 import React from 'react'
-import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
 import { setConfig } from 'react-hot-loader'
+import { hot } from 'react-hot-loader/root'
+import { BrowserRouter as Router, Link, Redirect, Route } from 'react-router-dom'
 
-import Hook from './pages/Hook'
+import FetchData from './pages/fetchData'
 import HOC from './pages/HOC'
+import Hook from './pages/Hook'
 import RenderProps from './pages/RenderProps'
+import UseReducer from './pages/useReducer'
 
 setConfig({
   reloadHooks: false,
@@ -30,6 +33,20 @@ const routes = [
     name: 'Hook',
     sidebar: () => <div>Hook!</div>,
     component: Hook,
+  },
+  {
+    path: '/useReducer',
+    exact: true,
+    name: 'useReducer',
+    sidebar: () => <div>UseReducer!</div>,
+    component: UseReducer,
+  },
+  {
+    path: '/fetchData',
+    exact: true,
+    name: 'fetchData',
+    sidebar: () => <div>FetchData!</div>,
+    component: FetchData,
   },
 ]
 

@@ -5,6 +5,7 @@ interface IProps {
   render: (props: IMousePositon) => ReactNode
 }
 
+// tslint:disable-next-line: no-empty-interface
 interface IState extends IMousePositon {}
 
 export default class MousePosition extends PureComponent<IProps, IState> {
