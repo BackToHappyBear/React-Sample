@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
 import { Button } from 'antd'
+import React, { Component } from 'react'
 import LifeCycle from './LifeCycle'
 
 interface IState {
@@ -8,17 +8,17 @@ interface IState {
 
 const ToggleHOC = (WrappedComponent: React.ComponentType) => {
   return class extends Component<IState> {
-    state = {
+    public state = {
       toggle: false,
     }
 
-    handleClick = () => {
+    public handleClick = () => {
       this.setState((prevState: IState) => ({
         toggle: !prevState.toggle,
       }))
     }
 
-    render() {
+    public render() {
       const { toggle } = this.state
       return (
         <div>

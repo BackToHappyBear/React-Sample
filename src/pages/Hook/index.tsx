@@ -1,9 +1,9 @@
-import React from 'react'
 import { Button, Modal } from 'antd'
+import React from 'react'
+import OldState from './oldState'
+import Sample from './sample'
 import { useMousePosition } from './useMousePosition'
 import { useToggle } from './useToggle'
-import Sample from './sample'
-import OldState from './oldState'
 
 export interface IMousePositon {
   x: number

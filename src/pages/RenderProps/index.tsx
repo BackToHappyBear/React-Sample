@@ -1,5 +1,5 @@
-import React from 'react'
 import { Button, Modal } from 'antd'
+import React from 'react'
 import MousePosition from './renderProps'
 import Toggle from './toggle'
 

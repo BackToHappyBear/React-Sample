@@ -9,27 +9,27 @@ interface IProps {
 interface IState extends IMousePositon {}
 
 export default class MousePosition extends PureComponent<IProps, IState> {
-  state = {
+  public state = {
     x: 0,
     y: 0,
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     window.addEventListener('mousemove', this.handleMouseMove)
   }
 
-  componentWillUnmount() {
+  public componentWillUnmount() {
     window.removeEventListener('mousemove', this.handleMouseMove)
   }
 
-  handleMouseMove = (event: any) => {
+  public handleMouseMove = (event: any) => {
     this.setState({
       x: event.clientX,
       y: event.clientY,
     })
   }
 
-  render() {
+  public render() {
     return <div style={{ height: '100%', width: '100%' }}>{this.props.render(this.state)}</div>
   }
 }
