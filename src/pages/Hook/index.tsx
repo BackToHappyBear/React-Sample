@@ -1,4 +1,4 @@
-import { Button, Modal } from 'antd'
+import { Button, Divider, Modal } from 'antd'
 import React from 'react'
 import OldState from './oldState'
 import Sample from './sample'
@@ -30,6 +30,9 @@ const Hook = () => {
         <p>Some contents...</p>
         <p>Some contents...</p>
       </Modal>
+
+      <Divider />
+
       <OldState />
     </div>
   )
