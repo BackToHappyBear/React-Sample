@@ -65,7 +65,7 @@ export default function SearchResult() {
   console.log('render---')
   return (
     <>
-      <h2 className="title">hello world!</h2>
+      <h2 className="title">hooks fetching data!</h2>
       <form
         onSubmit={event => {
           event.preventDefault()
