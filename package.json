@@ -7,8 +7,8 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "tslint": "tslint -c tslint.json src/**/*{ts,tsx} --fix --format verbose",
-    "stylelint": "stylelint 'src/**/*.scss'"
+    "tslint:fix": "tslint -c tslint.json src/**/*.{ts,tsx} --fix --format verbose",
+    "stylelint:fix": "stylelint \"src/**/*.scss\" --syntax scss"
   },
   "dependencies": {
     "antd": "^3.20.0",
@@ -36,7 +36,7 @@
     "react-hot-loader": "^4.11.1",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
-    "stylelint-prettier": "^1.1.1",
+    "stylelint-config-standard": "^18.3.0",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
@@ -54,8 +54,8 @@
       "prettier --single-quote --write",
       "git add"
     ],
-    "scr/**/*.{js,jsx,ts,tsx}": "yarn tslint",
-    "src/**/*.scss": "yarn stylelint"
+    "scr/**/*.{js,jsx,ts,tsx}": "tslint -c tslint.json --fix",
+    "src/**/*.scss": "stylelint --syntax scss"
   },
   "eslintConfig": {
     "extends": "react-app"
