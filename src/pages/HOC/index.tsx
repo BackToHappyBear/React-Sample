@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchResult from '../fetchData/useReducer'
+import SearchResult from '../FetchData/useReducer'
 import ToggleHOC from './ToggleHOC'
 
 const component = () => {

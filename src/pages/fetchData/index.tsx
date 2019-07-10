@@ -56,14 +56,16 @@ import React, { useState } from 'react'
 //   )
 // }
 
+import './style.scss'
 import useFetchApi from './useFetchApi'
 
 export default function SearchResult() {
   const [query, setQuery] = useState('react')
   const { data, isLoading, isError, doFetch } = useFetchApi()
-
+  console.log('render---')
   return (
     <>
+      <h2 className="title">hello world!</h2>
       <form
         onSubmit={event => {
           event.preventDefault()

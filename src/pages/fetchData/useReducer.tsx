@@ -64,7 +64,6 @@ function useFetch(initialUrl: string) {
 
   useEffect(() => {
     let didCancle = false
-
     const fetchData = async () => {
       dispatch({ type: FETCH_INIT })
       try {

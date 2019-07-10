@@ -4,11 +4,12 @@ import { setConfig } from 'react-hot-loader'
 import { hot } from 'react-hot-loader/root'
 import { BrowserRouter as Router, Link, Redirect, Route } from 'react-router-dom'
 
-import FetchData from './pages/fetchData'
+import DiffComponent from './pages/DiffComponent'
+import FetchData from './pages/FetchData'
 import HOC from './pages/HOC'
 import Hook from './pages/Hook'
 import RenderProps from './pages/RenderProps'
-import UseReducer from './pages/useReducer'
+import UseReducer from './pages/UseReducer'
 
 setConfig({
   reloadHooks: false,
@@ -42,6 +43,13 @@ const routes = [
     component: UseReducer,
   },
   {
+    path: '/diffComponent',
+    exact: true,
+    name: 'DiffComponent',
+    sidebar: () => <div>DiffComponent!</div>,
+    component: DiffComponent,
+  },
+  {
     path: '/fetchData',
     exact: true,
     name: 'fetchData',
@@ -73,7 +81,7 @@ const App: React.FC = () => {
         </div>
 
         <div style={{ flex: 7, padding: '0 10px' }}>
-          <Redirect to="/HOC" />
+          <Redirect to="/fetchData" />
           {routes.map((route, index) => (
             <Route key={index} path={route.path} exact={route.exact} component={route.component} />
           ))}

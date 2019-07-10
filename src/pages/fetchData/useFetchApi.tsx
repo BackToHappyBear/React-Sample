@@ -8,8 +8,12 @@ export default function useFetchApi() {
   const [isError, setIsError] = useState(false)
 
   const doFetch = (query: string) => setUrl(`https://hn.algolia.com/api/v1/search?query=${query}`)
-
+  console.log('hook')
   useEffect(() => {
+    // eslint-disable-next-line
+    let didCancle = false
+    console.log('hook ---- didCancel false')
+
     const fetchData = async () => {
       setIsError(false)
       setIsLoading(true)
@@ -22,6 +26,11 @@ export default function useFetchApi() {
       setIsLoading(false)
     }
     fetchData()
+
+    return () => {
+      didCancle = true
+      console.log('hook ---- didCancel true')
+    }
   }, [url])
 
   return {

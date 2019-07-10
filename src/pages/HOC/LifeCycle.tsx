@@ -9,7 +9,7 @@ export default class LifeCycle extends PureComponent {
     this.setState({
       name: 'hanmeimei',
     })
-    console.log('did mount')
+    // console.log('did mount')
   }
 
   public getSnapshotBeforeUpdate(prevProps, prevState) {
@@ -20,13 +20,13 @@ export default class LifeCycle extends PureComponent {
   }
 
   public componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log('TCL: Component -> componentDidUpdate -> prevProps', prevProps)
-    console.log('TCL: Component -> componentDidUpdate -> prevState', prevState)
-    console.log('TCL: LifeCycle -> componentDidUpdate -> snapshot', snapshot)
+    // console.log('TCL: Component -> componentDidUpdate -> prevProps', prevProps)
+    // console.log('TCL: Component -> componentDidUpdate -> prevState', prevState)
+    // console.log('TCL: LifeCycle -> componentDidUpdate -> snapshot', snapshot)
   }
 
   public render() {
-    console.log('render--------')
+    // console.log('render--------')
     return <div>name: {this.state.name}</div>
   }
 }
