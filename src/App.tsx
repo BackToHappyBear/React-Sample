@@ -4,6 +4,7 @@ import { setConfig } from 'react-hot-loader'
 import { hot } from 'react-hot-loader/root'
 import { BrowserRouter as Router, Link, Redirect, Route } from 'react-router-dom'
 
+import Closure from './pages/Closure'
 import DiffComponent from './pages/DiffComponent'
 import FetchData from './pages/FetchData'
 import HOC from './pages/HOC'
@@ -56,6 +57,13 @@ const routes = [
     sidebar: () => <div>FetchData!</div>,
     component: FetchData,
   },
+  {
+    path: '/closure',
+    exact: true,
+    name: 'Closure',
+    sidebar: () => <div>Closure!</div>,
+    component: Closure,
+  },
 ]
 
 const App: React.FC = () => {
@@ -73,7 +81,15 @@ const App: React.FC = () => {
         >
           <ul style={{ listStyleType: 'none', padding: 0 }}>
             {routes.map((route, index) => (
-              <li key={index}>
+              <li
+                key={index}
+                style={{
+                  width: '100%',
+                  textAlign: 'center',
+                  padding: '10px 0',
+                  borderBottom: '1px solid #0000000b',
+                }}
+              >
                 <Link to={route.path}>{route.name}</Link>
               </li>
             ))}

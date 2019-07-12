@@ -5,13 +5,13 @@ const FETCH_INIT = 'FETCH_INIT'
 const FETCH_SUCCESS = 'FETCH_SUCCESS'
 const FECTH_FAILED = 'FECTH_FAILED'
 
-interface IHit {
+export interface IHit {
   objectID: string
   url: string
   title: string
 }
 
-interface IState {
+export interface IState {
   loading: boolean
   error: boolean
   data: {
