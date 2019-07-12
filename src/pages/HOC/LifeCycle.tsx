@@ -20,6 +20,7 @@ export default class LifeCycle extends PureComponent<{}, IState> {
   }
 
   public componentDidMount() {
+    // 测试 merge bug
     this.fetchData()
   }
 
