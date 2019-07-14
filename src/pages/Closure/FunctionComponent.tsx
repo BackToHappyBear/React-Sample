@@ -9,6 +9,15 @@ export default function FunctionComponent() {
     }, 3000)
   })
 
+  // NOTE: change like class component
+  // const ref = useRef(count)
+  // useEffect(() => {
+  //   ref.current = count
+  //   setTimeout(() => {
+  //     console.log(`You clicked ${ref.current} times`)
+  //   }, 2000)
+  // }, [count])
+
   return (
     <div>
       <p>Function Component</p>
