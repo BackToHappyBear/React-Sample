@@ -96,7 +96,7 @@ const App: React.FC = () => {
           </ul>
         </div>
 
-        <div style={{ flex: 7, padding: '0 10px' }}>
+        <div style={{ flex: 7, padding: '0 10px', height: '100vh', overflowY: 'scroll' }}>
           <Redirect to="/fetchData" />
           {routes.map((route, index) => (
             <Route key={index} path={route.path} exact={route.exact} component={route.component} />
