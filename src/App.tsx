@@ -1,6 +1,4 @@
-// tslint:disable-next-line: ordered-imports
 import React from 'react'
-import { setConfig } from 'react-hot-loader'
 import { hot } from 'react-hot-loader/root'
 import { BrowserRouter as Router, Link, Redirect, Route } from 'react-router-dom'
 
@@ -10,11 +8,8 @@ import FetchData from './pages/FetchData'
 import HOC from './pages/HOC'
 import Hook from './pages/Hook'
 import RenderProps from './pages/RenderProps'
+import UnkonwnPerformance from './pages/UnkonwnPerformance'
 import UseReducer from './pages/UseReducer'
-
-setConfig({
-  reloadHooks: false,
-})
 
 const routes = [
   {
@@ -63,6 +58,13 @@ const routes = [
     name: 'Closure',
     sidebar: () => <div>Closure!</div>,
     component: Closure,
+  },
+  {
+    path: '/unkownPerformance',
+    exact: true,
+    name: 'unkownPerformance',
+    sidebar: () => <div>UnkonwnPerformance!</div>,
+    component: UnkonwnPerformance,
   },
 ]
 

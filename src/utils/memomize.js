@@ -9,10 +9,9 @@ export function memoize(resultFn, isEqual = areInputEqual) {
   // 这里的 `isEqual` 是一个抽象函数，用来判断两个值是否相等
   const isNewArgEqualToLast = (newArg, index) => isEqual(newArg, lastArgs[index])
 
-  // 如果上一次的参数和这一次一样，直接返回上一次的结果
+  // 如果上一次的参数和这一次一样，直接返回缓存的结果
   const result = function(...newArgs) {
     if (calledOnce && newArgs.length === lastArgs.length && newArgs.every(isNewArgEqualToLast)) {
-      // 如果和上次的参数一致， 直接返回缓存的值
       return lastResult
     }
 
