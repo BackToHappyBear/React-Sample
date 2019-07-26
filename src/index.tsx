@@ -1,6 +1,7 @@
+import 'react-hot-loader'
+// tslint:disable-next-line: ordered-imports
 import React from 'react'
 import ReactDOM from 'react-dom'
-import 'react-hot-loader'
 import App from './App'
 import './index.css'
 import * as serviceWorker from './serviceWorker'

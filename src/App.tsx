@@ -1,15 +1,17 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import { BrowserRouter as Router, Link, Redirect, Route } from 'react-router-dom'
-
-import Closure from './pages/Closure'
-import DiffComponent from './pages/DiffComponent'
-import FetchData from './pages/FetchData'
-import HOC from './pages/HOC'
-import Hook from './pages/Hook'
-import RenderProps from './pages/RenderProps'
-import UnkonwnPerformance from './pages/UnkonwnPerformance'
-import UseReducer from './pages/UseReducer'
+import {
+  Closure,
+  ComponentsDisplay,
+  DiffComponent,
+  FetchData,
+  HOC,
+  Hook,
+  RenderProps,
+  UnkonwnPerformance,
+  UseReducer,
+} from './pages'
 
 const routes = [
   {
@@ -66,6 +68,13 @@ const routes = [
     sidebar: () => <div>UnkonwnPerformance!</div>,
     component: UnkonwnPerformance,
   },
+  {
+    path: '/componentsDisplay',
+    exact: true,
+    name: 'componentsDisplay',
+    sidebar: () => <div>ComponentsDisplay!</div>,
+    component: ComponentsDisplay,
+  },
 ]
 
 const App: React.FC = () => {
@@ -99,7 +108,7 @@ const App: React.FC = () => {
         </div>
 
         <div style={{ flex: 7, padding: '0 10px', height: '100vh', overflowY: 'scroll' }}>
-          <Redirect to="/fetchData" />
+          <Redirect to="/componentsDisplay" />
           {routes.map((route, index) => (
             <Route key={index} path={route.path} exact={route.exact} component={route.component} />
           ))}
