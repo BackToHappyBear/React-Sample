@@ -8,6 +8,7 @@ import {
   FetchData,
   HOC,
   Hook,
+  PerformanceTest,
   RenderProps,
   UnkonwnPerformance,
   UseReducer,
@@ -74,6 +75,13 @@ const routes = [
     name: 'componentsDisplay',
     sidebar: () => <div>ComponentsDisplay!</div>,
     component: ComponentsDisplay,
+  },
+  {
+    path: '/performanceTest',
+    exact: true,
+    name: 'performanceTest',
+    sidebar: () => <div>PerformanceTest!</div>,
+    component: PerformanceTest,
   },
 ]
 

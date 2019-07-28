@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-
+import './style.scss'
 export default class ComponentDisplay extends PureComponent {
   static defaultProps = {
     delta: 50,
@@ -10,7 +10,8 @@ export default class ComponentDisplay extends PureComponent {
     distance: 0,
     // 响应卡片 id
     activeId: 0,
-    transitionDuration: '0.5s',
+    zIndex: 0,
+    transitionDuration: 0.5,
     // touch 相关
     startX: 0,
   }
@@ -39,78 +40,84 @@ export default class ComponentDisplay extends PureComponent {
 
   touchEnd = e => {
     const { delta } = this.props
-    const { distance, activeId } = this.state
+    const { distance, activeId, zIndex } = this.state
     // 回归原位
     if (Math.abs(distance) <= delta) {
       this.setState({
         distance: 0,
-        transitionDuration: '0.5s',
+        transitionDuration: 0.5,
       })
     } else {
       const prefix = distance > 0 ? '' : '-'
       this.setState({
         distance: `${prefix}100%`,
-        transitionDuration: '0.5s',
+        transitionDuration: 0.5,
       })
       // 设置下一个 activeId
+      const length = 3
+      const nextActiveId = activeId === length - 1 ? 0 : activeId + 1
       setTimeout(() => {
         this.setState({
-          activeId: activeId + 1,
+          activeId: nextActiveId,
           distance: 0,
+          zIndex: zIndex - 1,
         })
       }, 500)
     }
   }
 
   render() {
-    const { distance, activeId, transitionDuration } = this.state
-
-    const defaultSwiperStyle = {
-      position: 'relative',
-      width: '30%',
-      margin: '0 auto',
-      backgroundColor: '#ccc',
-      zIndex: 1,
-    }
+    const { distance, activeId, zIndex, transitionDuration } = this.state
 
     // 常规卡片样式
     const itemStyle = {
       position: 'absolute',
       width: '100%',
       height: 200,
-      transform: 'translate(100%)',
-      transitionDuration: 0,
-      WebkitTransform: 'translate(100%)',
-      WebkitTransitonDuration: 0,
-      zIndex: -100000,
+      zIndex: zIndex - 1,
+      opacity: 0,
+      transform: `translate(0%) scale(1)`,
+      WebkitTransform: `translate(0%) scale(1)`,
+      transitionDuration: '0s',
+      WebkitTransitonDuration: '0s',
+      transitionDelay: '0.5s',
+      WebkitTransitionDelay: '0.5s',
     }
 
     const translate = typeof distance === 'number' ? distance + 'px' : distance
     // 当前卡片样式
+    // TODO: transition: transform 2s, opacity 1s
     const animateStyle = {
-      transform: `translate(${translate}, 0px)`,
-      transitionDuration,
-      WebkitTransform: `translate(${translate}, 0px)`,
-      WebkitTransitonDuration: transitionDuration,
+      opacity: 1,
+      transform: `translate(${translate}, 0px) scale(1)`,
+      WebkitTransform: `translate(${translate}, 0px) scale(1)`,
+      transitionDuration: `${transitionDuration}s`,
+      WebkitTransitonDuration: `${transitionDuration}s`,
+      transitionDelay: '0s',
+      WebkitTransitionDelay: '0s',
     }
 
     // 当前卡片下一张样式
     const animateNextStyle = {
+      opacity: 1,
       transform: `translate(0, 12px) scale(0.95)`,
-      transitionDuration: 0,
       WebkitTransform: `translate(0, 12px) scale(0.95)`,
-      WebkitTransitonDuration: 0,
+      transitionDuration: '0.5s',
+      WebkitTransitonDuration: '0.5s',
+      transitionDelay: '0s',
+      WebkitTransitionDelay: '0s',
     }
     // TODO: 新增的 transitionDuration 不生效？
     return (
-      <div className="swiper" style={defaultSwiperStyle}>
-        {['skyblue', 'hotpink', 'yellowgreen'].map((item, index, array) => {
+      <div className="swiper">
+        {['hotpink', 'yellowgreen', 'skyblue'].map((item, index, array) => {
           let style = { ...itemStyle }
-          if (activeId % array.length === index) {
-            style = { ...itemStyle, ...animateStyle, zIndex: -activeId }
+          if (activeId === index) {
+            style = { ...itemStyle, ...animateStyle, zIndex: zIndex + 2 }
           }
-          if ((activeId + 1) % array.length === index) {
-            style = { ...itemStyle, ...animateNextStyle, zIndex: -activeId - 1 }
+          const animateNextId = activeId === array.length - 1 ? 0 : activeId + 1
+          if (animateNextId === index) {
+            style = { ...itemStyle, ...animateNextStyle, zIndex: zIndex + 1 }
           }
           return (
             <div

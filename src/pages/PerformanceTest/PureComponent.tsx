@@ -1,5 +1,12 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-export default function ChildComponent() {
-  return <div>1</div>
+interface IProps {
+  data: number[]
 }
+
+function ChildComponent(props: IProps) {
+  console.log('fc render only first time')
+  return <div>{props.data}</div>
+}
+
+export default memo(ChildComponent)
