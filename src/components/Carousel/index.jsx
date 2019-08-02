@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import './style.scss'
+
 export default class ComponentDisplay extends PureComponent {
   static defaultProps = {
     delta: 50,
@@ -14,13 +15,6 @@ export default class ComponentDisplay extends PureComponent {
     transitionDuration: 0.5,
     // touch 相关
     startX: 0,
-  }
-
-  componentDidMount() {
-    // 只要是 activeId 就让其 tranlateY = 0
-    // activeId 展示，z-index 为 -activeId，translateX 为 0
-    // 设置 activeId+1 的 z-index 为 -activeId - 1，translateX 为 0，translateY 为 10px
-    // 其余项 z-index 不设置，translateX 为-100%，translateX 为 0
   }
 
   touchStart = e => {
@@ -77,11 +71,8 @@ export default class ComponentDisplay extends PureComponent {
       zIndex: zIndex - 1,
       opacity: 0,
       transform: `translate(0%) scale(1)`,
-      WebkitTransform: `translate(0%) scale(1)`,
       transitionDuration: '0s',
-      WebkitTransitonDuration: '0s',
       transitionDelay: '0.5s',
-      WebkitTransitionDelay: '0.5s',
     }
 
     const translate = typeof distance === 'number' ? distance + 'px' : distance
@@ -90,24 +81,18 @@ export default class ComponentDisplay extends PureComponent {
     const animateStyle = {
       opacity: 1,
       transform: `translate(${translate}, 0px) scale(1)`,
-      WebkitTransform: `translate(${translate}, 0px) scale(1)`,
       transitionDuration: `${transitionDuration}s`,
-      WebkitTransitonDuration: `${transitionDuration}s`,
       transitionDelay: '0s',
-      WebkitTransitionDelay: '0s',
     }
 
     // 当前卡片下一张样式
     const animateNextStyle = {
       opacity: 1,
       transform: `translate(0, 12px) scale(0.95)`,
-      WebkitTransform: `translate(0, 12px) scale(0.95)`,
       transitionDuration: '0.5s',
-      WebkitTransitonDuration: '0.5s',
       transitionDelay: '0s',
-      WebkitTransitionDelay: '0s',
     }
-    // TODO: 新增的 transitionDuration 不生效？
+
     return (
       <div className="swiper">
         {['hotpink', 'yellowgreen', 'skyblue'].map((item, index, array) => {
