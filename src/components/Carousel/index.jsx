@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import './style.scss'
 
-export default class ComponentDisplay extends PureComponent {
+export class Carousel extends PureComponent {
   static defaultProps = {
     delta: 50,
   }
