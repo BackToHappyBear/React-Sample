@@ -71,7 +71,6 @@ export class CountScroll extends PureComponent<IProps, IState> {
 
   public render() {
     const { countNumber } = this.state
-    console.log('TCL: render -> countNumber', countNumber)
     return <div ref={this.containerRef}>{countNumber}</div>
   }
 }

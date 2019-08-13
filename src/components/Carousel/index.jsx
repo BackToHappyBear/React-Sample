@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import './style.scss'
+import { debounce2 } from '../../utils/debounce'
 
 export class Carousel extends PureComponent {
   static defaultProps = {
@@ -58,6 +59,23 @@ export class Carousel extends PureComponent {
         })
       }, 500)
     }
+  }
+
+  resizeFunc = () => {
+    console.log('debounce1')
+  }
+
+  componentDidMount() {
+    // NOTE: did not work
+    // window.onresize = () => {
+    //   debounce(() => console.log(1), 500)
+    // }
+
+    // const _this = this
+    // window.onresize = function() {
+    //   debounce(_this.resizeFunc, 500)
+    // }
+    window.addEventListener('resize', debounce2(this.resizeFunc, 1000))
   }
 
   render() {
