@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import './style.scss'
-import { debounce2 } from '../../utils/debounce'
+import { debounce } from '../../utils/debounce'
 
 export class Carousel extends PureComponent {
   static defaultProps = {
@@ -61,21 +61,20 @@ export class Carousel extends PureComponent {
     }
   }
 
-  resizeFunc = () => {
-    console.log('debounce1')
+  resizeFunc = e => {
+    console.log(this.state)
+    console.log(e.currentTarget)
   }
 
   componentDidMount() {
-    // NOTE: did not work
-    // window.onresize = () => {
-    //   debounce(() => console.log(1), 500)
-    // }
+    /* NOTE: anonymous func did not work, (() => {}).tId always be undfined
+     * 此封装比较难传递参数，
+     */
+    window.onresize = e => {
+      debounce(this.resizeFunc, 500, this, e, 123)
+    }
 
-    // const _this = this
-    // window.onresize = function() {
-    //   debounce(_this.resizeFunc, 500)
-    // }
-    window.addEventListener('resize', debounce2(this.resizeFunc, 1000))
+    // window.addEventListener('resize', debounce2(this.resizeFunc, 1000))
   }
 
   render() {

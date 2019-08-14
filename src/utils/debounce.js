@@ -1,7 +1,8 @@
-export function debounce(method, delay, context) {
+export function debounce(method, delay, context, ...rest) {
   clearTimeout(method.tId)
   method.tId = setTimeout(function() {
-    method.call(context)
+    console.log(rest)
+    method.apply(context, rest)
   }, delay)
 }
 
