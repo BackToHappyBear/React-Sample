@@ -9,11 +9,13 @@ export function debounce(method, delay, context, ...rest) {
 export function debounce2(fn, delay) {
   var timer = null
   return function() {
-    var context = this,
-      args = arguments
+    // var context = this,
+    var args = arguments
+    // console.log('this', 'window')
     clearTimeout(timer)
     timer = setTimeout(function() {
-      fn.apply(context, args)
+      fn(...args)
+      // fn.apply(context, args)
     }, delay)
   }
 }
