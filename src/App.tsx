@@ -9,6 +9,7 @@ import {
   HOC,
   Hook,
   PerformanceTest,
+  PureComponentTips,
   RenderProps,
   UnkonwnPerformance,
   UseReducer,
@@ -83,6 +84,13 @@ const routes = [
     sidebar: () => <div>PerformanceTest!</div>,
     component: PerformanceTest,
   },
+  {
+    path: '/pureComponentTips',
+    exact: true,
+    name: 'pureComponentTips',
+    sidebar: () => <div>PureComponentTips!</div>,
+    component: PureComponentTips,
+  },
 ]
 
 const App: React.FC = () => {
@@ -116,7 +124,7 @@ const App: React.FC = () => {
         </div>
 
         <div style={{ flex: 7, padding: '0 10px', height: '100vh', overflowY: 'scroll' }}>
-          <Redirect to="/componentsDisplay" />
+          <Redirect to="/pureComponentTips" />
           {routes.map((route, index) => (
             <Route key={index} path={route.path} exact={route.exact} component={route.component} />
           ))}

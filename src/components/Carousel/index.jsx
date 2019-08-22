@@ -63,8 +63,8 @@ export class Carousel extends PureComponent {
 
   resizeFunc = e => {
     // 闭包封装的debounce2 此处需要绑定好 this
-    console.log(this.state)
-    console.log('event type: ', e.type)
+    // console.log(this.state)
+    // console.log('event type: ', e.type)
   }
 
   componentDidMount() {
