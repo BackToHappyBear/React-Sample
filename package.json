@@ -8,7 +8,8 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "tslint:fix": "tslint -c tslint.json src/**/*.{ts,tsx} --fix --format verbose",
-    "stylelint:fix": "stylelint \"src/**/*.scss\" --syntax scss"
+    "stylelint:fix": "stylelint \"src/**/*.scss\" --syntax scss",
+    "commit": "git-cz"
   },
   "dependencies": {
     "antd": "^3.21.2",
@@ -28,7 +29,9 @@
     "@types/react-dom": "^16.8.5",
     "@types/react-router-dom": "^4.3.4",
     "babel-plugin-import": "^1.12.0",
+    "commitizen": "^4.0.3",
     "customize-cra": "^0.4.1",
+    "cz-conventional-changelog": "^3.0.2",
     "husky": "^3.0.2",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
@@ -59,6 +62,11 @@
     ],
     "scr/**/*.{js,jsx,ts,tsx}": "tslint -c tslint.json --fix",
     "src/**/*.scss": "stylelint --syntax scss"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
