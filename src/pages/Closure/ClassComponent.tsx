@@ -1,23 +1,27 @@
 import React, { Component } from 'react'
 
-export default class ClassComponent extends Component {
-  public state = {
+interface IState {
+  count: number
+}
+
+export default class ClassComponent extends Component<{}, IState> {
+  state: IState = {
     count: 0,
   }
-  public componentDidMount() {
+  componentDidMount() {
     // NOTE: 解决 class component this更换问题
     // const { count } = this.state
     setTimeout(() => {
       console.log(`You clicked ${this.state.count} times`)
     }, 3000)
   }
-  public componentDidUpdate() {
+  componentDidUpdate() {
     // const { count } = this.state
     setTimeout(() => {
       console.log(`You clicked ${this.state.count} times`)
     }, 3000)
   }
-  public render() {
+  render() {
     return (
       <div>
         <h2>Class Component</h2>

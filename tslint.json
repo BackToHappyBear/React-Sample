@@ -17,6 +17,7 @@
     "jsx-no-lambda": false,
     "no-implicit-dependencies": false,
     "no-console": false,
-    "react-hooks-nesting": "error"
+    "react-hooks-nesting": "error",
+    "member-access": false
   }
 }
