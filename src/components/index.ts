@@ -1,2 +1,2 @@
-export { Carousel } from './Carousel'
-export { CountScroll } from './CountScroll'
+export { Carousel } from '../pages/ComponentsDisplay/Carousel'
+export { CountScroll } from '../pages/ComponentsDisplay/CountScroll'
