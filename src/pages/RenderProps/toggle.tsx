@@ -9,26 +9,24 @@ interface IInjectedParams extends IState {
 }
 
 interface IProps {
-  // TODO: 到底该返回啥子 JSX.Element
-  children(params: IInjectedParams): any
+  children(params: IInjectedParams): JSX.Element
 }
 
 export default class Toggle extends Component<IProps, IState> {
-  public state: IState = {
+  state = {
     visible: false,
   }
 
-  public onToggle = () => {
+  onToggle = () => {
     this.setState((prevState: IState) => ({
       visible: !prevState.visible,
     }))
   }
 
-  public render() {
+  render() {
     const { visible } = this.state
-    const { children } = this.props
     // TODO: 更好的声明方式？
     const { onToggle } = this
-    return <div>{children({ visible, onToggle })}</div>
+    return <div>{this.props.children({ visible, onToggle })}</div>
   }
 }

@@ -2,9 +2,13 @@ import 'react-hot-loader'
 // tslint:disable-next-line: ordered-imports
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import { hot } from 'react-hot-loader/root'
 import './index.css'
+// import App from './App'
+import Route from './routers'
 import * as serviceWorker from './serviceWorker'
+
+const App = hot(Route)
 
 ReactDOM.render(<App />, document.getElementById('root'))
 

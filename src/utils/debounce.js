@@ -9,9 +9,9 @@ export function debounce(method, delay, context, ...rest) {
 export function debounce2(fn, delay) {
   var timer = null
   return function() {
+    // 确保 fn 的 this 指向，如 dom 元素
     // var context = this,
     var args = arguments
-    // console.log('this', 'window')
     clearTimeout(timer)
     timer = setTimeout(function() {
       fn(...args)

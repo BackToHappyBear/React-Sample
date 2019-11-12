@@ -9,12 +9,16 @@ interface IState {
   countNumber: number
 }
 
-export class CountScroll extends PureComponent<IProps, IState> {
-  public state = {
+export default class CountScroll extends PureComponent<IProps, IState> {
+  state = {
     countNumber: Math.floor(this.props.count / 2),
   }
 
-  public handleScroll = debounce(
+  tId: any
+  isCountScrolling = false
+  containerRef = createRef<HTMLDivElement>()
+
+  handleScroll = debounce(
     () => {
       const dom = this.containerRef.current
       if (!dom) {
@@ -56,21 +60,16 @@ export class CountScroll extends PureComponent<IProps, IState> {
     { maxWait: 800 },
   )
 
-  private tId
-  private isCountScrolling = false
-
-  private containerRef = createRef<HTMLDivElement>()
-
-  public componentDidMount() {
+  componentDidMount() {
     window.addEventListener('scroll', this.handleScroll, true)
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll, true)
   }
 
-  public render() {
+  render() {
     const { countNumber } = this.state
-    return <div ref={this.containerRef}>{countNumber}</div>
+    return <div ref={this.containerRef}>123</div>
   }
 }

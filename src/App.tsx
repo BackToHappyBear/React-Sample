@@ -1,136 +1,128 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import { BrowserRouter as Router, Link, Redirect, Route } from 'react-router-dom'
-import {
-  Closure,
-  ComponentsDisplay,
-  DiffComponent,
-  FetchData,
-  HOC,
-  Hook,
-  PerformanceTest,
-  PureComponentTips,
-  RenderProps,
-  UnkonwnPerformance,
-  UseReducer,
-} from './pages'
+import BasicLayout from './layouts/BasicLayout'
+import * as pages from './pages'
 
 const routes = [
   {
     path: '/HOC',
     name: 'HOC',
     sidebar: () => <div>HOC!</div>,
-    component: HOC,
+    component: pages.HOC,
   },
   {
     path: '/RenderProps',
     name: 'RenderProps',
     sidebar: () => <div>RenderProps!</div>,
-    component: RenderProps,
+    component: pages.RenderProps,
   },
   {
     path: '/hook',
     exact: true,
     name: 'Hook',
     sidebar: () => <div>Hook!</div>,
-    component: Hook,
+    component: pages.Hook,
   },
   {
     path: '/useReducer',
     exact: true,
     name: 'useReducer',
     sidebar: () => <div>UseReducer!</div>,
-    component: UseReducer,
+    component: pages.UseReducer,
   },
   {
     path: '/diffComponent',
     exact: true,
     name: 'DiffComponent',
     sidebar: () => <div>DiffComponent!</div>,
-    component: DiffComponent,
+    component: pages.DiffComponent,
   },
   {
     path: '/fetchData',
     exact: true,
     name: 'fetchData',
     sidebar: () => <div>FetchData!</div>,
-    component: FetchData,
+    component: pages.FetchData,
   },
   {
     path: '/closure',
     exact: true,
     name: 'Closure',
     sidebar: () => <div>Closure!</div>,
-    component: Closure,
+    component: pages.Closure,
   },
   {
     path: '/unkownPerformance',
     exact: true,
     name: 'unkownPerformance',
     sidebar: () => <div>UnkonwnPerformance!</div>,
-    component: UnkonwnPerformance,
+    component: pages.UnkonwnPerformance,
   },
   {
     path: '/componentsDisplay',
     exact: true,
     name: 'componentsDisplay',
     sidebar: () => <div>ComponentsDisplay!</div>,
-    component: ComponentsDisplay,
+    component: pages.ComponentsDisplay,
   },
   {
     path: '/performanceTest',
     exact: true,
     name: 'performanceTest',
     sidebar: () => <div>PerformanceTest!</div>,
-    component: PerformanceTest,
+    component: pages.PerformanceTest,
   },
   {
     path: '/pureComponentTips',
     exact: true,
     name: 'pureComponentTips',
     sidebar: () => <div>PureComponentTips!</div>,
-    component: PureComponentTips,
+    component: pages.PureComponentTips,
   },
 ]
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <div style={{ display: 'flex' }}>
-        <div
-          style={{
-            padding: '0 10px',
-            width: '40%',
-            height: '100vh',
-            background: '#f0f0f0',
-            flex: 1,
-          }}
-        >
-          <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {routes.map((route, index) => (
-              <li
-                key={index}
-                style={{
-                  width: '100%',
-                  textAlign: 'center',
-                  padding: '10px 0',
-                  borderBottom: '1px solid #0000000b',
-                }}
-              >
-                <Link to={route.path}>{route.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <BasicLayout>
+      <div>Hello World!</div>
+    </BasicLayout>
+    //   <Router>
+    //     <div style={{ display: 'flex' }}>
+    //       <div
+    //         style={{
+    //           padding: '0 10px',
+    //           width: '40%',
+    //           height: '100vh',
+    //           background: '#f0f0f0',
+    //           flex: 1,
+    //         }}
+    //       >
+    //         <ul style={{ listStyleType: 'none', padding: 0 }}>
+    //           {routes.map((route, index) => (
+    //             <li
+    //               key={index}
+    //               style={{
+    //                 width: '100%',
+    //                 textAlign: 'center',
+    //                 padding: '10px 0',
+    //                 borderBottom: '1px solid #0000000b',
+    //               }}
+    //             >
+    //               <Link to={route.path}>{route.name}</Link>
+    //             </li>
+    //           ))}
+    //         </ul>
+    //       </div>
 
-        <div style={{ flex: 7, padding: '0 10px', height: '100vh', overflowY: 'scroll' }}>
-          <Redirect to="/pureComponentTips" />
-          {routes.map((route, index) => (
-            <Route key={index} path={route.path} exact={route.exact} component={route.component} />
-          ))}
-        </div>
-      </div>
-    </Router>
+    //       <div style={{ flex: 7, padding: '0 10px', height: '100vh', overflowY: 'scroll' }}>
+    //         <Redirect to="/pureComponentTips" />
+    //         {routes.map((route, index) => (
+    //           <Route key={index} path={route.path} exact={route.exact} component={route.component} />
+    //         ))}
+    //       </div>
+    //     </div>
+    //   </Router>
   )
 }
 

@@ -1,16 +1,19 @@
 import { Divider } from 'antd'
-import React from 'react'
+import React, { Component } from 'react'
 import MessageThread from './MessageThread'
 import ProfilePageClass from './ProfilePageClass'
 import ProfilePageFunction from './ProfilePageFunction'
 import ProfilePageHook from './ProfilePageHook'
 
-export default class App extends React.Component {
-  public state = {
+interface IState {
+  user: string
+}
+export default class DiffComponent extends Component<{}, IState> {
+  state = {
     user: 'Dan',
   }
 
-  public render() {
+  render() {
     return (
       <>
         <h1>点击follow按钮后修改select的值</h1>
