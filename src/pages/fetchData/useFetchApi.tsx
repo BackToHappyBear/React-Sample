@@ -10,15 +10,16 @@ export default function useFetchApi() {
   const doFetch = (query: string) => setUrl(`https://hn.algolia.com/api/v1/search?query=${query}`)
 
   useEffect(() => {
-    // eslint-disable-next-line
     let didCancle = false
 
-    const fetchData = async () => {
+    async function fetchData() {
       setIsError(false)
       setIsLoading(true)
       try {
         const result = await axios(url)
-        setData(result.data)
+        if (didCancle) {
+          setData(result.data)
+        }
       } catch (error) {
         setIsError(true)
       }
