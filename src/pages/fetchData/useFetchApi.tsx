@@ -17,7 +17,7 @@ export default function useFetchApi() {
       setIsLoading(true)
       try {
         const result = await axios(url)
-        if (didCancle) {
+        if (!didCancle) {
           setData(result.data)
         }
       } catch (error) {
