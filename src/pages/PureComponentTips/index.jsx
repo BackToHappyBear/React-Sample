@@ -5,7 +5,7 @@ class ComponentA extends PureComponent {
     number: 100,
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     console.log(
       'nextProps.children === this.props.children ?',
       nextProps.children === this.props.children,
@@ -46,6 +46,7 @@ const Layout = ({ children }) => {
 // 调用 setState(value + 1), componentA render 的原因是因为 props.children 变了 ?
 // 即使使用 PureComponent 也无法优化
 // () => setState(value) componentA 不会重新 render
+// 类比 context，采用 bailout 机制
 const PureComponentTips = () => {
   const [value, setState] = useState(1)
   return (
