@@ -1,10 +1,6 @@
 import Axios from 'axios'
 import React, { useEffect, useReducer, useState } from 'react'
 
-const FETCH_INIT = 'FETCH_INIT'
-const FETCH_SUCCESS = 'FETCH_SUCCESS'
-const FECTH_FAILED = 'FECTH_FAILED'
-
 export interface IHit {
   objectID: string
   url: string
@@ -27,27 +23,57 @@ export interface IState {
   }
 }
 
-const initialState: IState = {
+const initialState = {
   loading: false,
   error: false,
   data: { hits: [] },
+} as const
+
+const actions = {
+  FETCH_INIT: 'FETCH_INIT',
+  FETCH_SUCCESS: 'FETCH_SUCCESS',
+  FETCH_FAILED: 'FETCH_FAILED',
+} as const
+
+const fetchInit = () => {
+  return {
+    type: actions.FETCH_INIT,
+  } as const
 }
 
-function reducer(state = initialState, action) {
+const fechSuccess = (payload: { hits: IHit[] }) => {
+  return {
+    type: actions.FETCH_SUCCESS,
+    payload,
+  } as const
+}
+
+const fetchFailed = () => {
+  return {
+    type: actions.FETCH_FAILED,
+  } as const
+}
+
+type ActionsType =
+  | ReturnType<typeof fetchInit>
+  | ReturnType<typeof fechSuccess>
+  | ReturnType<typeof fetchFailed>
+
+function reducer(state = initialState, action: ActionsType): IState {
   switch (action.type) {
-    case FETCH_INIT:
+    case actions.FETCH_INIT:
       return {
         loading: true,
         error: false,
         data: { hits: [] },
       }
-    case FETCH_SUCCESS:
+    case actions.FETCH_SUCCESS:
       return {
         loading: false,
         error: false,
         data: action.payload,
       }
-    case FECTH_FAILED:
+    case actions.FETCH_FAILED:
       return {
         loading: false,
         error: true,
@@ -64,16 +90,16 @@ function useFetch(initialUrl: string) {
 
   useEffect(() => {
     let didCancle = false
-    const fetchData = async () => {
-      dispatch({ type: FETCH_INIT })
+    async function fetchData() {
+      dispatch({ type: 'FETCH_INIT' })
       try {
         const result = await Axios(url)
         if (!didCancle) {
-          dispatch({ type: FETCH_SUCCESS, payload: result.data })
+          dispatch({ type: 'FETCH_SUCCESS', payload: result.data })
         }
       } catch (error) {
         if (!didCancle) {
-          dispatch({ type: FECTH_FAILED })
+          dispatch({ type: 'FETCH_FAILED' })
         }
       }
     }
