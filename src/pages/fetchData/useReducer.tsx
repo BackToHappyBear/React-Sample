@@ -23,11 +23,12 @@ export interface IState {
   }
 }
 
+// NOTE: as const 用作 action type string, 其他类型不适合
 const initialState = {
   loading: false,
   error: false,
-  data: { hits: [] },
-} as const
+  data: { hits: [{}] as IHit[] },
+}
 
 const actions = {
   FETCH_INIT: 'FETCH_INIT',
@@ -63,18 +64,21 @@ function reducer(state = initialState, action: ActionsType): IState {
   switch (action.type) {
     case actions.FETCH_INIT:
       return {
+        ...state,
         loading: true,
         error: false,
         data: { hits: [] },
       }
     case actions.FETCH_SUCCESS:
       return {
+        ...state,
         loading: false,
         error: false,
         data: action.payload,
       }
     case actions.FETCH_FAILED:
       return {
+        ...state,
         loading: false,
         error: true,
         data: { hits: [] },
