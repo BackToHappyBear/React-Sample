@@ -7,7 +7,9 @@ export default function useFetchApi() {
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
 
-  const doFetch = (query: string) => setUrl(`https://hn.algolia.com/api/v1/search?query=${query}`)
+  const doFetch = (query: string) => {
+    setUrl(`https://hn.algolia.com/api/v1/search?query=${query}`)
+  }
 
   useEffect(() => {
     let didCancle = false

@@ -9,3 +9,4 @@ export function compose(...funcs) {
 
   return funcs.reduce((a, b) => (...args) => a(b(...args)))
 }
+// https://juejin.im/post/5b3ce5086fb9a04f89780d83
