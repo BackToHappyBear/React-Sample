@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 let person = new Person({
   el: '#app',
   data: {

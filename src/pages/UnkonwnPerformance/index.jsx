@@ -2,7 +2,7 @@ import React from 'react'
 
 function Logger(props) {
   console.log(`${props.label} rendered`)
-  return null // what is returned here is irrelevant...
+  return null
 }
 
 function Counter(props) {

@@ -4,18 +4,18 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "tslint:fix": "tslint -c tslint.json src/**/*.{ts,tsx} --fix --format verbose",
-    "stylelint:fix": "stylelint \"src/**/*.scss\" --syntax scss",
+    "eslint:fix": "eslint --fix './src/**/*.{js,jsx,ts,tsx}'",
+    "stylelint:fix": "stylelint --fix \"src/**/*.scss\" --syntax scss",
+    "lint-staged": "lint-staged",
     "commit": "git-cz"
   },
   "dependencies": {
     "antd": "^3.21.2",
     "axios": "^0.19.0",
-    "cz-customizable": "^6.2.0",
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
     "react": "^16.8.6",
@@ -32,8 +32,10 @@
     "@types/react-router-dom": "^5.1.2",
     "babel-plugin-import": "^1.12.0",
     "commitizen": "^4.0.3",
-    "customize-cra": "^0.9.1",
     "cz-conventional-changelog": "^3.0.2",
+    "cz-customizable": "^6.2.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.2",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
@@ -45,12 +47,13 @@
     "stylelint": "^12.0.0",
     "stylelint-config-prettier": "^6.0.0",
     "stylelint-config-standard": "^19.0.0",
+    "stylelint-prettier": "^1.1.1",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
     "tslint-react": "^4.0.0",
     "tslint-react-hooks": "^2.2.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.7.2"
   },
   "husky": {
     "hooks": {
@@ -58,12 +61,12 @@
     }
   },
   "lint-staged": {
+    "src/**/*.scss": "npm run stylelint:fix",
     "src/**/*.{js,jsx,ts,tsx,json,scss}": [
       "prettier --config ./.prettierrc --write",
       "git add"
     ],
-    "scr/**/*.{js,jsx,ts,tsx}": "tslint -c tslint.json --fix",
-    "src/**/*.scss": "stylelint --syntax scss"
+    "scr/**/*.{js,jsx,ts,tsx}": "npm run eslint:fix"
   },
   "config": {
     "commitizen": {
@@ -74,7 +77,17 @@
     }
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "prettier/prettier": "error",
+      "no-unused-expressions": "off",
+      "@typescript-eslint/no-unused-expressions": [
+        "error"
+      ]
+    }
   },
   "browserslist": {
     "production": [
