@@ -82,36 +82,36 @@ const routes = [
 
 const App: React.FC = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Router>
-        <div style={{ display: 'flex' }}>
-          <div
-            style={{
-              padding: '0 10px',
-              width: '40%',
-              height: '100vh',
-              background: '#f0f0f0',
-              flex: 1,
-            }}
-          >
-            <ul style={{ listStyleType: 'none', padding: 0 }}>
-              {routes.map((route, index) => (
-                <li
-                  key={index}
-                  style={{
-                    width: '100%',
-                    textAlign: 'center',
-                    padding: '10px 0',
-                    borderBottom: '1px solid #0000000b',
-                  }}
-                >
-                  <Link to={route.path}>{route.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <Router>
+      <div style={{ display: 'flex' }}>
+        <div
+          style={{
+            padding: '0 10px',
+            width: '40%',
+            height: '100vh',
+            background: '#f0f0f0',
+            flex: 1,
+          }}
+        >
+          <ul style={{ listStyleType: 'none', padding: 0 }}>
+            {routes.map((route, index) => (
+              <li
+                key={index}
+                style={{
+                  width: '100%',
+                  textAlign: 'center',
+                  padding: '10px 0',
+                  borderBottom: '1px solid #0000000b',
+                }}
+              >
+                <Link to={route.path}>{route.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          <div style={{ flex: 7, padding: '0 10px', height: '100vh', overflowY: 'scroll' }}>
+        <div style={{ flex: 7, padding: '0 10px', height: '100vh', overflowY: 'scroll' }}>
+          <Suspense fallback={<div>Loading...</div>}>
             <Redirect to="/pureComponentTips" />
             {routes.map((route, index) => (
               <Route
@@ -121,10 +121,10 @@ const App: React.FC = () => {
                 component={route.component}
               />
             ))}
-          </div>
+          </Suspense>
         </div>
-      </Router>
-    </Suspense>
+      </div>
+    </Router>
   )
 }
 
