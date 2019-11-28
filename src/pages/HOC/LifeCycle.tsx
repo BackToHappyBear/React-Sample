@@ -7,11 +7,11 @@ interface IState extends IFetchState {
   url: string
 }
 export default class LifeCycle extends PureComponent<{}, IState> {
-  public static getSnapshotBeforeUpdate() {
+  static getSnapshotBeforeUpdate() {
     return { name: 'lee' }
   }
 
-  public state = {
+  state = {
     loading: false,
     error: false,
     data: { hits: [] },
@@ -19,18 +19,18 @@ export default class LifeCycle extends PureComponent<{}, IState> {
     url: 'http://hn.algolia.com/api/v1/search?query=react',
   }
 
-  public componentDidMount() {
+  componentDidMount() {
     // 测试 merge bug
     this.fetchData()
   }
 
-  public componentDidUpdate(prevProps, prevState: IState) {
+  componentDidUpdate(prevProps, prevState: IState) {
     if (prevState.url !== this.state.url) {
       this.fetchData()
     }
   }
 
-  public fetchData = async () => {
+  fetchData = async () => {
     this.setState({
       loading: true,
     })
@@ -48,7 +48,7 @@ export default class LifeCycle extends PureComponent<{}, IState> {
     }
   }
 
-  public render() {
+  render() {
     const { data, error, loading, query } = this.state
     return (
       <>

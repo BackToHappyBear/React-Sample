@@ -9,12 +9,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint:fix": "eslint --fix './src/**/*.{js,jsx,ts,tsx}'",
-    "stylelint:fix": "stylelint --fix \"src/**/*.scss\" --syntax scss",
+    "stylelint:fix": "stylelint --fix './src/**/*.scss' --syntax scss",
     "lint-staged": "lint-staged",
     "commit": "git-cz"
   },
   "dependencies": {
-    "antd": "^3.21.2",
+    "antd": "^3.25.3",
     "axios": "^0.19.0",
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
@@ -45,8 +45,12 @@
     "react-app-rewired": "^2.1.5",
     "react-hot-loader": "^4.12.10",
     "stylelint": "^12.0.0",
+    "stylelint-config-css-modules": "^2.1.0",
     "stylelint-config-prettier": "^6.0.0",
+    "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^19.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.2.0",
+    "stylelint-order": "^3.1.1",
     "stylelint-prettier": "^1.1.1",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
@@ -61,12 +65,12 @@
     }
   },
   "lint-staged": {
-    "src/**/*.scss": "npm run stylelint:fix",
+    "src/**/*.scss": "stylelint --syntax scss",
     "src/**/*.{js,jsx,ts,tsx,json,scss}": [
       "prettier --config ./.prettierrc --write",
       "git add"
     ],
-    "scr/**/*.{js,jsx,ts,tsx}": "npm run eslint:fix"
+    "scr/**/*.{js,jsx,ts,tsx}": "eslint --fix --ext .js,.jsx,.ts,.tsx"
   },
   "config": {
     "commitizen": {
@@ -87,6 +91,30 @@
       "@typescript-eslint/no-unused-expressions": [
         "error"
       ]
+    }
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-prettier/recommended",
+      "stylelint-config-css-modules",
+      "stylelint-config-rational-order"
+    ],
+    "plugins": [
+      "stylelint-order",
+      "stylelint-config-rational-order/plugin",
+      "stylelint-declaration-block-no-ignored-properties"
+    ],
+    "rules": {
+      "order/properties-order": [],
+      "plugin/rational-order": [
+        true,
+        {
+          "border-in-box-model": true,
+          "empty-line-between-groups": true
+        }
+      ],
+      "no-descending-specificity": null,
+      "plugin/declaration-block-no-ignored-properties": true
     }
   },
   "browserslist": {

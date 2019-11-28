@@ -1,9 +1,11 @@
 .swiper {
   position: relative;
-  width: 30%;
-  margin: 0 auto;
-  background-color: #ccc;
   z-index: 1;
+
+  width: 30%;
   height: 250px;
+  margin: 0 auto;
   overflow: hidden;
+
+  background-color: #ccc;
 }
