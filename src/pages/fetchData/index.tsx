@@ -1,6 +1,6 @@
 import { Divider } from 'antd'
 import React, { useState } from 'react'
-import usePrevious from '../../hooks/usePrevious'
+import usePrevious from 'hooks/usePrevious'
 import FunctionDataFlow from './FunctionDataFlow'
 import './style.scss'
 import useFetchApi from './useFetchApi'

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import './style.scss'
-import { debounce2 } from '../../../utils/debounce'
+import { debounce2 } from 'utils/debounce'
 
 export class Carousel extends PureComponent {
   static defaultProps = {

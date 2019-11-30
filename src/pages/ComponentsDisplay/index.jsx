@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { Carousel, CountScroll } from '../../components'
+import { Carousel, CountScroll } from 'components'
 
 export default class ComponentDisplay extends PureComponent {
   render() {
