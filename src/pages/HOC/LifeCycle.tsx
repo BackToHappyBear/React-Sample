@@ -1,16 +1,13 @@
 import Axios from 'axios'
 import React, { PureComponent } from 'react'
-import { IHit, IState as IFetchState } from '../FetchData/useReducer'
+import { Hit, State as IFetchState } from '../FetchData/useReducer'
 
-interface IState extends IFetchState {
+type State = IFetchState & {
   query: string
   url: string
 }
-export default class LifeCycle extends PureComponent<{}, IState> {
-  static getSnapshotBeforeUpdate() {
-    return { name: 'lee' }
-  }
 
+export default class LifeCycle extends PureComponent<{}, State> {
   state = {
     loading: false,
     error: false,
@@ -24,7 +21,11 @@ export default class LifeCycle extends PureComponent<{}, IState> {
     this.fetchData()
   }
 
-  componentDidUpdate(prevProps, prevState: IState) {
+  getSnapshotBeforeUpdate() {
+    return { name: 'lee' }
+  }
+
+  componentDidUpdate(prevProps, prevState: State) {
     if (prevState.url !== this.state.url) {
       this.fetchData()
     }
@@ -55,7 +56,9 @@ export default class LifeCycle extends PureComponent<{}, IState> {
         <form
           onSubmit={e => {
             e.preventDefault()
-            this.setState({ url: `http://hn.algolia.com/api/v1/search?query=${query}` })
+            this.setState({
+              url: `http://hn.algolia.com/api/v1/search?query=${query}`,
+            })
           }}
         >
           <input
@@ -72,7 +75,7 @@ export default class LifeCycle extends PureComponent<{}, IState> {
           <h2>loading...</h2>
         ) : (
           <ul>
-            {data.hits.map((item: IHit) => (
+            {data.hits.map((item: Hit) => (
               <li key={item.objectID}>
                 <a href={item.url}>{item.title}</a>
               </li>

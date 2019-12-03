@@ -1,20 +1,20 @@
 import debounce from 'lodash-es/debounce'
 import React, { createRef, PureComponent } from 'react'
 
-interface IProps {
+type Props = {
   count: number
 }
 
-interface IState {
+type State = {
   countNumber: number
 }
 
-export class CountScroll extends PureComponent<IProps, IState> {
-  public state = {
+export class CountScroll extends PureComponent<Props, State> {
+  state = {
     countNumber: Math.floor(this.props.count / 2),
   }
 
-  public handleScroll = debounce(
+  handleScroll = debounce(
     () => {
       const dom = this.containerRef.current
       if (!dom) {
@@ -61,15 +61,15 @@ export class CountScroll extends PureComponent<IProps, IState> {
 
   private containerRef = createRef<HTMLDivElement>()
 
-  public componentDidMount() {
+  componentDidMount() {
     window.addEventListener('scroll', this.handleScroll, true)
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll, true)
   }
 
-  public render() {
+  render() {
     const { countNumber } = this.state
     return <div ref={this.containerRef}>{countNumber}</div>
   }

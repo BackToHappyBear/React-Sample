@@ -4,12 +4,12 @@ import List from './List'
 import PureComponent from './PureComponent'
 
 export default class PerformanceTest extends React.PureComponent {
-  public state = {
+  state = {
     count: 0,
     data: [1, 2, 3],
   }
 
-  public render() {
+  render() {
     const { count, data } = this.state
     return (
       <div>

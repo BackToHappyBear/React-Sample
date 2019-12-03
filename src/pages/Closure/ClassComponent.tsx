@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-interface IState {
+type State = {
   count: number
 }
 
-export default class ClassComponent extends Component<{}, IState> {
-  state: IState = {
+export default class ClassComponent extends Component<{}, State> {
+  state: State = {
     count: 0,
   }
   componentDidMount() {

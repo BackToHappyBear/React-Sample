@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react'
 
-interface IProps {
+type Props = {
   content: string
 }
 
-export default class ListItem extends PureComponent<IProps, {}> {
-  public render() {
+export default class ListItem extends PureComponent<Props, {}> {
+  render() {
     console.log('item render')
     return <div>{this.props.content}</div>
   }

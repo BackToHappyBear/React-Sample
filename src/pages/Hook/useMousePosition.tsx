@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 
-import { IMousePositon } from '../RenderProps'
+import { MousePositon } from '../RenderProps'
 
 export function useMousePosition() {
-  const [mousePosition, setMousePositon] = useState<IMousePositon>({ x: 0, y: 0 })
+  const [mousePosition, setMousePositon] = useState<MousePositon>({ x: 0, y: 0 })
 
   function handleMouseMove(event: { clientX: number; clientY: number }) {
     setMousePositon({

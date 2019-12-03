@@ -1,23 +1,23 @@
 import { Button } from 'antd'
 import React, { Component } from 'react'
 
-interface IState {
+type State = {
   toggle: boolean
 }
 
 const ToggleHOC = (WrappedComponent: React.ComponentType) => {
-  return class extends Component<IState> {
-    public state = {
+  return class extends Component<State> {
+    state = {
       toggle: false,
     }
 
-    public handleClick = () => {
-      this.setState((prevState: IState) => ({
+    handleClick = () => {
+      this.setState((prevState: State) => ({
         toggle: !prevState.toggle,
       }))
     }
 
-    public render() {
+    render() {
       const { toggle } = this.state
       return (
         <div>

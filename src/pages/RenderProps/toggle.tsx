@@ -1,34 +1,28 @@
 import React, { Component } from 'react'
 
-interface IState {
+type State = {
   visible: boolean
 }
 
-interface IInjectedParams extends IState {
-  onToggle: () => void
+type Props = {
+  children(params: State & { onToggle(): void }): React.ReactNode
 }
 
-interface IProps {
-  // TODO: 到底该返回啥子 JSX.Element
-  children(params: IInjectedParams): any
-}
-
-export default class Toggle extends Component<IProps, IState> {
-  public state: IState = {
+export default class Toggle extends Component<Props, State> {
+  state: State = {
     visible: false,
   }
 
-  public onToggle = () => {
-    this.setState((prevState: IState) => ({
+  onToggle = () => {
+    this.setState(prevState => ({
       visible: !prevState.visible,
     }))
   }
 
-  public render() {
+  render() {
     const { visible } = this.state
-    const { children } = this.props
     // TODO: 更好的声明方式？
     const { onToggle } = this
-    return <div>{children({ visible, onToggle })}</div>
+    return <div>{this.props.children({ visible, onToggle })}</div>
   }
 }

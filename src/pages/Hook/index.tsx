@@ -5,7 +5,7 @@ import Sample from './sample'
 import { useMousePosition } from './useMousePosition'
 import { useToggle } from './useToggle'
 
-export interface IMousePositon {
+export type MousePositon = {
   x: number
   y: number
 }

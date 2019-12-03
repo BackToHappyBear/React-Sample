@@ -1,27 +1,27 @@
 import { Button } from 'antd'
 import React, { useReducer } from 'react'
 
-interface IState {
+type State = {
   count: number
 }
 
-interface IIncrementAction {
+type IncrementAction = {
   type: 'increment'
   payload: number
 }
 
-interface IDecrementAction {
+type DecrementAction = {
   type: 'decrement'
   payload: number
 }
 
-type Action = IIncrementAction | IDecrementAction
+type Action = IncrementAction | DecrementAction
 
-const initialState: IState = {
+const initialState: State = {
   count: 0,
 }
 
-function reducer(state: IState, action: Action) {
+function reducer(state: State, action: Action) {
   switch (action.type) {
     case 'increment':
       return { count: state.count + action.payload }

@@ -1,17 +1,17 @@
 import Axios from 'axios'
 import React, { useEffect, useReducer, useState } from 'react'
 
-export interface IHit {
+export type Hit = {
   objectID: string
   url: string
   title: string
 }
 
-export interface IState {
+export type State = {
   loading: boolean
   error: boolean
   data: {
-    hits: IHit[]
+    hits: Hit[]
     // hits: Array<{ objectID: string; url: string; title: string }>
 
     // NOTE: wrong⬇️
@@ -27,7 +27,7 @@ export interface IState {
 const initialState = {
   loading: false,
   error: false,
-  data: { hits: [{}] as IHit[] },
+  data: { hits: [{}] as Hit[] },
 }
 
 const actions = {
@@ -42,7 +42,7 @@ const fetchInit = () => {
   } as const
 }
 
-const fechSuccess = (payload: { hits: IHit[] }) => {
+const fechSuccess = (payload: { hits: Hit[] }) => {
   return {
     type: actions.FETCH_SUCCESS,
     payload,
@@ -60,7 +60,7 @@ type ActionsType =
   | ReturnType<typeof fechSuccess>
   | ReturnType<typeof fetchFailed>
 
-function reducer(state = initialState, action: ActionsType): IState {
+function reducer(state = initialState, action: ActionsType): State {
   switch (action.type) {
     case actions.FETCH_INIT:
       return {
@@ -148,7 +148,7 @@ export default function SearchResult() {
         <h2>loading...</h2>
       ) : (
         <ul>
-          {data.hits.map((item: IHit) => (
+          {data.hits.map((item: Hit) => (
             <li key={item.objectID}>
               <a href={item.url}>{item.title}</a>
             </li>

@@ -6,11 +6,11 @@ import ProfilePageFunction from './ProfilePageFunction'
 import ProfilePageHook from './ProfilePageHook'
 
 export default class App extends React.Component {
-  public state = {
+  state = {
     user: 'Dan',
   }
 
-  public render() {
+  render() {
     return (
       <>
         <h1>点击follow按钮后修改select的值</h1>

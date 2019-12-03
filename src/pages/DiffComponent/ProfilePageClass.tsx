@@ -1,15 +1,15 @@
 import React from 'react'
 
 class ProfilePage extends React.Component<{ user: string }> {
-  public showMessage = () => {
+  showMessage = () => {
     alert('Followed ' + this.props.user)
   }
 
-  public handleClick = () => {
+  handleClick = () => {
     setTimeout(this.showMessage, 3000)
   }
 
-  public render() {
+  render() {
     return <button onClick={this.handleClick}>Follow</button>
   }
 }

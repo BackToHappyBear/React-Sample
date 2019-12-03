@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import ListItem from './ListItem'
 
-interface IItem {
+type Item = {
   id: number
   content: string
 }
@@ -17,17 +17,17 @@ function renderArray(num: number) {
   return ret
 }
 
-interface IState {
+type State = {
   count: number
-  list: IItem[]
+  list: Item[]
 }
 
-export default class List extends PureComponent<{}, IState> {
-  public state = {
+export default class List extends PureComponent<{}, State> {
+  state = {
     count: 0,
     list: renderArray(2),
   }
-  public render() {
+  render() {
     const { list, count } = this.state
     return (
       <div>

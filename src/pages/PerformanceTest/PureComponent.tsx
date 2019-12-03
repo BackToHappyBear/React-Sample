@@ -1,10 +1,10 @@
 import React, { memo } from 'react'
 
-interface IProps {
+type Props = {
   data: number[]
 }
 
-function ChildComponent(props: IProps) {
+function ChildComponent(props: Props) {
   console.log('fc render only first time')
   return <div>{props.data}</div>
 }
