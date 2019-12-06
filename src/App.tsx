@@ -78,6 +78,13 @@ const routes = [
     sidebar: () => <div>PureComponentTips!</div>,
     component: lazy(() => import('pages/PureComponentTips')),
   },
+  {
+    path: '/hookDemo',
+    exact: true,
+    name: 'HookDemo',
+    sidebar: () => <div>HookDemo!</div>,
+    component: lazy(() => import('pages/HookDemo')),
+  },
 ]
 
 const App: React.FC = () => {

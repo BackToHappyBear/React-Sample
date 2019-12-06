@@ -23,8 +23,7 @@ export type State = {
   }
 }
 
-// NOTE: as const 用作 action type string, 其他类型不适合
-const initialState = {
+const initialState: State = {
   loading: false,
   error: false,
   data: { hits: [{}] as Hit[] },

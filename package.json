@@ -67,15 +67,14 @@
     }
   },
   "lint-staged": {
-    "src/**/*.scss": [
-      "stylelint --syntax scss --fix",
-      "git add"
-    ],
     "src/**/*.{js,jsx,ts,tsx,json,scss}": [
       "prettier --config ./.prettierrc --write",
       "git add"
     ],
-    "scr/**/*.{js,jsx,ts,tsx}": "eslint --fix --ext .js,.jsx,.ts,.tsx"
+    "src/**/*.scss": [
+      "stylelint --syntax scss"
+    ],
+    "scr/**/*.{js,jsx,ts,tsx}": "eslint --ext .js,.jsx,.ts,.tsx"
   },
   "config": {
     "commitizen": {
