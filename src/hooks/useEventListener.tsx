@@ -8,7 +8,7 @@ export default function useEventListener(
   const saveHandler = useRef<(e: any) => void | null>()
 
   useEffect(() => {
-    if (saveHandler && saveHandler.current) {
+    if (saveHandler?.current) {
       saveHandler.current = handler
     }
   }, [handler])
