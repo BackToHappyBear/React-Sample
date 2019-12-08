@@ -18,7 +18,7 @@ export default function useEventListener(
     if (!isSupport) return
 
     const eventListener = (e: any) => {
-      if (saveHandler && saveHandler.current) {
+      if (saveHandler?.current) {
         return saveHandler.current(e)
       }
     }
