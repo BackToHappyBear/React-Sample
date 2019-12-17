@@ -22,7 +22,8 @@
     "react": "^16.8.6",
     "react-dom": "npm:@hot-loader/react-dom",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "use-immer": "^0.3.5"
   },
   "devDependencies": {
     "@types/jest": "^24.0.17",
