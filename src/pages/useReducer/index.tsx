@@ -1,5 +1,5 @@
 import { Button } from 'antd'
-import React, { memo, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { useImmerReducer } from 'use-immer'
 import { initialState, reducer, State, Action } from './reducer'
 
