@@ -85,6 +85,13 @@ const routes = [
     sidebar: () => <div>HookDemo!</div>,
     component: lazy(() => import('pages/HookDemo')),
   },
+  {
+    path: '/constate',
+    exact: true,
+    name: 'Constate',
+    sidebar: () => <div>Constate!</div>,
+    component: lazy(() => import('pages/Constate')),
+  },
 ]
 
 const App: React.FC = () => {
