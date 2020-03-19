@@ -1,5 +1,8 @@
 import React, { PureComponent, useState } from 'react'
+import Tabs from '../../components/Tabs'
+import Effect from '../../components/Effect'
 
+const { TabItem } = Tabs
 class ComponentA extends PureComponent {
   state = {
     number: 100,
@@ -21,7 +24,6 @@ class ComponentA extends PureComponent {
   // 对于传入 children 或 props 是 JSX 的情况，React bailout 默认优化
   // 在 Component A 中 setState 并不会使 this.props.children 重新 render
   render() {
-    console.log('component A render')
     return (
       <div>
         <span>ComponentA</span>
@@ -33,13 +35,11 @@ class ComponentA extends PureComponent {
 }
 
 const ComponentB = ({ value }) => {
-  console.log('component B render')
   return <div>ComponentB - {value}</div>
 }
 
 const Layout = ({ children }) => {
   // Layout 也会重新执行！！！
-  console.log('Layout render')
   return <>{children}</>
 }
 
@@ -55,6 +55,16 @@ const PureComponentTips = () => {
         <ComponentB value={value} />
       </ComponentA>
       <button onClick={() => setState(value + 1)}>改变 value</button>
+      <br />
+      <br />
+      <Tabs>
+        <TabItem>One</TabItem>
+        <TabItem>Two</TabItem>
+        <TabItem>Three</TabItem>
+      </Tabs>
+      <br />
+      <br />
+      <Effect />
     </Layout>
   )
 }

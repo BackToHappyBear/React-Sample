@@ -12,7 +12,7 @@ export function debounce2(fn, delay) {
     var args = arguments
     clearTimeout(timer)
     timer = setTimeout(function() {
-      fn.apply(this, args)
+      fn(...args)
     }, delay)
   }
 }
