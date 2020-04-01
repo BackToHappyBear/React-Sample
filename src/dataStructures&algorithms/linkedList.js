@@ -19,7 +19,7 @@ class LinkedList {
     let current
 
     if (this.head === null) {
-      this.head = current
+      this.head = node
     } else {
       current = this.head
       while (current.next) {
@@ -57,7 +57,7 @@ class LinkedList {
   }
 
   removeAt(position) {
-    if (position >= 0 && position <= this.length) {
+    if (position >= 0 && position < this.length) {
       let current = this.head
       let previous
       let index = 0
@@ -76,7 +76,10 @@ class LinkedList {
     }
   }
 
-  remove(element) {}
+  remove(element) {
+    let index = this.indexOf(element)
+    this.removeAt(index)
+  }
 
   indexOf(element) {
     let current = this.head

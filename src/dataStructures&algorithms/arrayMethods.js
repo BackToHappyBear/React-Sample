@@ -1,4 +1,4 @@
-// map forEach every filter some find reduce includes
+// map forEach every filter some find reduce includes from
 // fill concat sort reverse slice fliter toString valueOf join indexOf lastIndexOf
 // push pop unshift shift splice
 
@@ -28,3 +28,10 @@ console.log(Array.prototype.slice.call({ 0: 1, length: 1 }))
 // toString join
 console.log([1, 2, 3].toString()) // 1,2,3
 console.log([1, 2, 3].join('')) // 123
+
+console.log(
+  '1,2,3'
+    .split(',')
+    .reverse()
+    .join(''),
+)

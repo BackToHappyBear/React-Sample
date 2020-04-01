@@ -1,5 +1,7 @@
 'use strict';
 
+// https://github.com/leonardoanalista/cz-customizable/blob/master/cz-config-EXAMPLE.js
+
 module.exports = {
   scopes: [],
   allowCustomScopes: true,

@@ -1,5 +1,15 @@
 import Axios from 'axios'
 
+// 巧用查找类型+泛型+keyof
+// type API = {
+//   '/user': { name: string }
+//   '/list': { sum: number }
+// }
+
+// const get = <URL extends keyof API>(url: URL): Promise<API[URL]> => {
+//   return fetch(url).then(res => res.json())
+// }
+
 interface ResponseData<D = any> {
   code: number
   result: D
@@ -18,7 +28,7 @@ async function Request<D, P = {}>(params: P): Promise<D> {
   }
 }
 
-Request<{ name: string; age: number }, { name: string }>('https://xxx')
+Request<{ name: string; age: number }>('https://xxx')
   .then(res => {
     return { age: res.age }
   })
