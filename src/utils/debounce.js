@@ -9,10 +9,9 @@ export function debounce(method, delay, context, ...rest) {
 export function debounce2(fn, delay) {
   var timer = null
   return function() {
-    var args = arguments
     clearTimeout(timer)
     timer = setTimeout(function() {
-      fn(...args)
+      fn(...arguments)
     }, delay)
   }
 }

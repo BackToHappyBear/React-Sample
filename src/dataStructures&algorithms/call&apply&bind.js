@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-extend-native */
 function greet(p) {
   const reply = [this.animal, 'typically sleep between', this.sleepDuration].join(' ')
@@ -38,3 +39,13 @@ Function.prototype.myBind = function(context = window, ...args) {
 }
 
 greet.myBind(obj)(1)
+
+// curry sum(100,200)(300)(...)()
+function curry(fn, ...rest) {
+  return function(...args) {
+    if (args.length) {
+      return curry(fn, ...rest, ...args)
+    }
+    return fn(...rest)
+  }
+}

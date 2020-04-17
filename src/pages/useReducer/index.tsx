@@ -26,7 +26,7 @@ export default function App() {
 // state change, since children cannot have changed,
 // it automatically BAILS OUT of trying to update the children
 // No need for sCU, memo, etc
-export function CounterProvider(props: any) {
+export const CounterProvider: React.FC = props => {
   const [state, dispatch] = useImmerReducer(reducer, initialState)
   return (
     <CountContext.Provider value={{ countState: state, countDispatch: dispatch }}>

@@ -115,7 +115,7 @@ function BinarySearchTree() {
     }
   }
 
-  // 中序遍历(按大小顺序遍历) 从最小到最大 应用：排序操作
+  // 中序遍历(按大小顺序遍历) 从最小到最大 顺序：子树左、自己、子树右 应用：排序操作
   this.inOrderTraverse = function(callback) {
     inOrderTraverseNode(root, callback)
   }
@@ -128,7 +128,7 @@ function BinarySearchTree() {
     }
   }
 
-  // 先序遍历 应用：结构化文档
+  // 先序遍历 顺序自己、子树左、子树右 应用：结构化文档
   this.prevOrderTraverse = function(callback) {
     prevOrderTraverse(root, callback)
   }
@@ -141,7 +141,7 @@ function BinarySearchTree() {
     }
   }
 
-  // 后序遍历 先访问节点的后代节点再访问本身 应用：计算一个目录和他的子目录中所有文件所占空间大小
+  // 后序遍历 先访问节点的后代节点再访问本身 顺序：子树左、右、自己 应用：计算一个目录和他的子目录中所有文件所占空间大小
   this.postOrderTraverse = function(callback) {
     postOrderTraverseNode(root, callback)
   }
