@@ -59,3 +59,26 @@ const data = {
 }
 dig(data, 'level3') // 'some data'
 dig(data, 'level4') // undefined
+
+// TITLE: parseCookie
+// parseCookie('foo=bar; equation=E%3Dmc%5E2'); // { foo: 'bar', equation: 'E=mc^2' }
+const parseCookie = str =>
+  str
+    .split(';')
+    .map(v => v.split('='))
+    .reduce((acc, v) => {
+      acc[decodeURIComponent(v[0].trim)] = decodeURIComponent(v[1].trim)
+      return acc
+    }, {})
+
+// TITLE: get
+// const obj = { selector: { to: { val: 'val to select' } }, target: [1, 2, { a: 'test' }] };
+// get(obj, 'selector.to.val', 'target[0]', 'target[2].a'); // ['val to select', 1, 'test']
+const get = (from, ...selectors) =>
+  [...selectors].map(s =>
+    s
+      .replace(/\[([^[\]]*)\]/g, '.$1.')
+      .split('.')
+      .filter(t => t !== '')
+      .reduce((prev, cur) => prev && prev[cur], from),
+  )

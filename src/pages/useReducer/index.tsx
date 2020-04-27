@@ -1,7 +1,7 @@
 import { Button } from 'antd'
 import React, { useContext } from 'react'
 import { useImmerReducer } from 'use-immer'
-import { initialState, reducer, State, Action } from './reducer'
+import { initialState, actions, reducer, State, Action } from './reducer'
 
 type ContextProps = {
   countState: State
@@ -43,12 +43,12 @@ const ChildComponent = () => {
       <div>Count: {countState.count}</div>
       <Button
         type="default"
-        onClick={() => countDispatch({ type: 'INCREMENT', number: 1 })}
+        onClick={() => countDispatch(actions.increment(1))}
         style={{ margin: '10px 10px 0 0' }}
       >
         +
       </Button>
-      <Button type="danger" onClick={() => countDispatch({ type: 'DECREMENT', number: 2 })}>
+      <Button type="danger" onClick={() => countDispatch(actions.decrement(2))}>
         -
       </Button>
     </>

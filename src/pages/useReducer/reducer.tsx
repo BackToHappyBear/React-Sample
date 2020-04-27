@@ -1,6 +1,10 @@
+export type State = typeof initialState
+
 export const initialState = {
   count: 0,
 }
+
+export type Action = ReturnType<typeof increment | typeof decrement>
 
 export function increment(number: number) {
   return {
@@ -16,8 +20,7 @@ export function decrement(number: number) {
   } as const
 }
 
-export type State = typeof initialState
-export type Action = ReturnType<typeof increment | typeof decrement>
+export const actions = { increment, decrement }
 
 export function reducer(state: State, action: Action) {
   switch (action.type) {
