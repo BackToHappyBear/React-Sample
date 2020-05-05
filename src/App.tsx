@@ -133,6 +133,7 @@ const App: React.FC = () => {
         </div>
 
         <div style={{ flex: 7, padding: '0 10px', height: '100vh', overflowY: 'scroll' }}>
+          <img src={require('./beatuy.jpeg')} alt="pic" />
           <Suspense fallback={<div>Loading...</div>}>
             <Redirect to="/pureComponentTips" />
             {routes.map((route, index) => (
