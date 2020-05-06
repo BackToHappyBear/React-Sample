@@ -185,8 +185,8 @@ module.exports = function(webpackEnv) {
       globalObject: 'this',
     },
     optimization: {
+      namedChunks: true,
       moduleIds: 'hashed',
-      // chunkIds: 'named',
       minimize: isEnvProduction,
       minimizer: [
         // This is only used in production mode
