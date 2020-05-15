@@ -2,6 +2,10 @@ import React, { lazy, Suspense } from 'react'
 import { hot } from 'react-hot-loader/root'
 import { BrowserRouter as Router, Link, Redirect, Route } from 'react-router-dom'
 
+// if (process.env.NODE_ENV !== 'production') {
+//   require('./mock')
+// }
+
 const routes = [
   {
     path: '/HOC',

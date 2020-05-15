@@ -2,6 +2,7 @@ import { Divider } from 'antd'
 import React, { useState } from 'react'
 import usePrevious from 'hooks/usePrevious'
 import FunctionDataFlow from './FunctionDataFlow'
+import Table from './Table'
 import './style.scss'
 import useFetchApi from './useFetchApi'
 
@@ -12,6 +13,9 @@ export default function SearchResult() {
   const prevCount = usePrevious(count)
   return (
     <>
+      <div>
+        <Table />
+      </div>
       <h2 className="title">hooks fetching data!</h2>
       <form
         onSubmit={event => {

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // 斐波那契
 function fibonacci(num) {
   if (num === 1 || num === 2) {
