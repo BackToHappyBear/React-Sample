@@ -23,8 +23,8 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin')
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
 
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
-const smp = new SpeedMeasurePlugin()
+// const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
+// const smp = new SpeedMeasurePlugin()
 
 const postcssNormalize = require('postcss-normalize')
 
@@ -48,7 +48,7 @@ const cssRegex = /\.css$/
 const cssModuleRegex = /\.module\.css$/
 const sassRegex = /\.(scss|sass)$/
 const sassModuleRegex = /\.module\.(scss|sass)$/
-
+const { FileListPlugin } = require('../plugins/donePlugin')
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function(webpackEnv) {
@@ -124,7 +124,7 @@ module.exports = function(webpackEnv) {
     return loaders
   }
 
-  return smp.wrap({
+  return {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     // Stop compilation early in production
     bail: isEnvProduction,
@@ -493,6 +493,9 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      new FileListPlugin({
+        filename: 'statistics/list.md',
+      }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
@@ -645,5 +648,5 @@ module.exports = function(webpackEnv) {
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
     performance: false,
-  })
+  }
 }
