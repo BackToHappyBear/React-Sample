@@ -22,6 +22,7 @@ const getClientEnvironment = require('./env')
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin')
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 // const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 // const smp = new SpeedMeasurePlugin()
@@ -493,9 +494,10 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
-      new FileListPlugin({
-        filename: 'statistics/list.md',
-      }),
+      // new HardSourceWebpackPlugin(),
+      // new FileListPlugin({
+      //   filename: 'statistics/list.md',
+      // }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(

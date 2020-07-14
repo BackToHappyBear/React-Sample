@@ -5,6 +5,8 @@ import Sample from './sample'
 import { useMousePosition } from './useMousePosition'
 import { useToggle } from './useToggle'
 
+import { useInterval } from 'react-use-collection'
+
 export type MousePositon = {
   x: number
   y: number
@@ -13,9 +15,20 @@ export type MousePositon = {
 const Hook = () => {
   const { x, y } = useMousePosition()
   const { visible, toggleVisible } = useToggle(false)
+  const [delay, setDelay] = React.useState<number | null>(1000)
+
+  useInterval(
+    () => {
+      console.log('useInterval!')
+    },
+    delay ? delay : null,
+  )
 
   return (
     <div className="App">
+      <button
+        onClick={() => setDelay(d => (d === null ? 1000 : null))}
+      >{`delay is ${delay} `}</button>
       <h1>Hook useMousePosition</h1>
       <h2>Move the mouse around!</h2>
       <p style={{ background: 'palegreen' }}>

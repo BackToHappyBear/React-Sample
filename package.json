@@ -57,11 +57,13 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
+    "quick-large-number": "^1.0.0",
     "react": "^16.8.6",
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.1",
     "react-dom": "npm:@hot-loader/react-dom",
     "react-router-dom": "^5.0.1",
+    "react-use-collection": "^0.0.2",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
     "sass-loader": "8.0.2",
@@ -91,6 +93,7 @@
     "cz-customizable": "^6.2.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.1",
+    "hard-source-webpack-plugin": "^0.13.1",
     "husky": "^3.0.2",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
@@ -166,6 +169,7 @@
       "stylelint-declaration-block-no-ignored-properties"
     ],
     "rules": {
+      "prettier/prettier": true,
       "order/properties-order": [],
       "plugin/rational-order": [
         true,
@@ -175,7 +179,8 @@
         }
       ],
       "no-descending-specificity": null,
-      "plugin/declaration-block-no-ignored-properties": true
+      "plugin/declaration-block-no-ignored-properties": true,
+      "at-rule-no-unknown": null
     }
   },
   "browserslist": {

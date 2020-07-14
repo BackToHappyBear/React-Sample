@@ -1,0 +1,102 @@
+@mixin circle($value: 300px, $bg: #ccc) {
+  width: $value;
+  height: $value;
+  border-radius: 50%;
+
+  background-color: $bg;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bigCircle {
+  @include circle();
+}
+
+.smallCircle {
+  @include circle(80px, rgba(13, 197, 173, 0.575));
+}
+
+.line {
+  position: relative;
+  &::after {
+    position: absolute;
+    top: -30px;
+
+    display: block;
+    width: 2px;
+    height: 65px;
+
+    background-color: rgb(127, 8, 206);
+
+    content: '';
+  }
+}
+
+#fan {
+  width: 0;
+  height: 0;
+  margin: 30px auto;
+  border-color: red transparent transparent transparent;
+  border-style: solid;
+  border-width: 100px;
+  border-radius: 100px;
+  overflow: hidden;
+
+  line-height: 99em;
+
+  cursor: pointer;
+}
+
+.pie {
+  position: relative;
+
+  width: 300px;
+  height: 300px;
+  // margin: 1em auto;
+  padding: 0;
+  border-radius: 50%;
+  overflow: hidden;
+
+  list-style: none;
+}
+.slice {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+
+  color: #fff;
+
+  transform-origin: 0% 100%;
+}
+.slice-one {
+  background: black;
+  transform: rotate(30deg) skewY(-30deg);
+}
+.slice-two {
+  background: yellow;
+  transform: rotate(-30deg) skewY(-30deg);
+}
+.slice-three {
+  background: black;
+  transform: rotate(-90deg) skewY(-30deg);
+}
+.slice-four {
+  background: yellow;
+  transform: rotate(-150deg) skewY(-30deg);
+}
+.slice-five {
+  background: black;
+  transform: rotate(-210deg) skewY(-30deg);
+}
+.slice-six {
+  background: yellow;
+  transform: rotate(-270deg) skewY(-30deg);
+}
