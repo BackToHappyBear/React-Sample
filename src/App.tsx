@@ -130,7 +130,7 @@ const App: React.FC = () => {
 
         <div style={{ flex: 7, padding: '0 10px', height: '100vh', overflowY: 'scroll' }}>
           <Suspense fallback={<div>Loading...</div>}>
-            <Redirect to="/pureComponentTips" />
+            <Redirect to="/componentsDisplay" />
             {routes.map((route, index) => (
               <Route
                 key={index}

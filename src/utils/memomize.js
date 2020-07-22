@@ -11,7 +11,11 @@ export function memoize(resultFn, isEqual = areInputEqual) {
 
   // 如果上一次的参数和这一次一样，直接返回缓存的结果
   const result = function(...newArgs) {
-    if (calledOnce && newArgs.length === lastArgs.length && newArgs.every(isNewArgEqualToLast)) {
+    if (
+      calledOnce &&
+      newArgs.length === lastArgs.length &&
+      newArgs.every(isNewArgEqualToLast)
+    ) {
       return lastResult
     }
 
