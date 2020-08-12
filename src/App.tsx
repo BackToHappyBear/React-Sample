@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from 'react'
-import { hot } from 'react-hot-loader/root'
 import { BrowserRouter as Router, Link, Redirect, Route } from 'react-router-dom'
 
 // if (process.env.NODE_ENV !== 'production') {
@@ -130,7 +129,7 @@ const App: React.FC = () => {
 
         <div style={{ flex: 7, padding: '0 10px', height: '100vh', overflowY: 'scroll' }}>
           <Suspense fallback={<div>Loading...</div>}>
-            <Redirect to="/componentsDisplay" />
+            <Redirect to="/hook" />
             {routes.map((route, index) => (
               <Route
                 key={index}
@@ -146,4 +145,4 @@ const App: React.FC = () => {
   )
 }
 
-export default hot(App)
+export default App

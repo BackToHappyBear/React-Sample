@@ -1,5 +1,3 @@
-import 'react-hot-loader'
-// tslint:disable-next-line: ordered-imports
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from 'App'

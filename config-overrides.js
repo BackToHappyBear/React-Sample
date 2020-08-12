@@ -1,5 +1,5 @@
 const { override, fixBabelImports } = require('customize-cra')
-// const path = require('path')
+const { addReactRefresh } = require('customize-cra-react-refresh')
 
 module.exports = override(
   fixBabelImports('import', {
@@ -7,6 +7,7 @@ module.exports = override(
     libraryDirectory: 'es',
     style: 'css',
   }),
+  addReactRefresh(),
   // setWebpackOptimizationSplitChunks({
   //   chunks: 'all',
   //   cacheGroups: {
