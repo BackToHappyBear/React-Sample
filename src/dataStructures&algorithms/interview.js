@@ -9,8 +9,7 @@ console.log(flat(arr))
 
 const flatten = (array, depth = 1) =>
   array.reduce(
-    (ret, item) =>
-      ret.concat(Array.isArray(item) && depth > 1 ? flatten(item, depth - 1) : item),
+    (ret, item) => ret.concat(Array.isArray(item) && depth > 1 ? flatten(item, depth - 1) : item),
     [],
   )
 

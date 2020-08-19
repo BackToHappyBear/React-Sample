@@ -1,13 +1,11 @@
 .listCard {
   position: absolute;
-
   display: flex;
   justify-content: center;
   width: 80%;
   margin-bottom: 20px;
   padding: 70px 0;
-  border-radius: 10px;
-
   list-style: none;
+  border-radius: 10px;
   box-shadow: 2px 2px 9px 0 #bbb;
 }

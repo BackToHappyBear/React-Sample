@@ -48,7 +48,7 @@ const ChildComponent = () => {
       >
         +
       </Button>
-      <Button type="danger" onClick={() => countDispatch(actions.decrement(2))}>
+      <Button type="default" onClick={() => countDispatch(actions.decrement(2))}>
         -
       </Button>
     </>
