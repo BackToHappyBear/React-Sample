@@ -32,7 +32,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.tsx', '.ts', '.js', '.json'],
+        extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
       },
       typescript: {},
     },
@@ -45,6 +45,7 @@ module.exports = {
         ts: 'never',
         tsx: 'never',
         js: 'never',
+        jsx: 'never',
         json: 'never',
       },
     ],
