@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 function BinarySearchTree() {
-  const Node = function(key) {
+  const Node = function (key) {
     this.key = key
     this.left = null
     this.right = null
@@ -8,7 +9,7 @@ function BinarySearchTree() {
   var root = null
 
   // 插入
-  this.insert = function(key) {
+  this.insert = function (key) {
     const newNode = new Node(key)
     if (!root) {
       root = newNode
@@ -33,7 +34,7 @@ function BinarySearchTree() {
     }
   }
 
-  this.remove = function(element) {
+  this.remove = function (element) {
     root = removeNode(root, element)
   }
 
@@ -72,7 +73,7 @@ function BinarySearchTree() {
   }
 
   // 最小值
-  this.min = function() {
+  this.min = function () {
     return findMinNode(root)
   }
 
@@ -86,7 +87,7 @@ function BinarySearchTree() {
   }
 
   // 最大值
-  this.max = function() {
+  this.max = function () {
     return findMaxNode(root)
   }
 
@@ -100,7 +101,7 @@ function BinarySearchTree() {
   }
 
   // 搜索值
-  this.search = function(key) {
+  this.search = function (key) {
     return searchNode(root, key)
   }
 
@@ -116,7 +117,7 @@ function BinarySearchTree() {
   }
 
   // 中序遍历(按大小顺序遍历) 从最小到最大 顺序：子树左、自己、子树右 应用：排序操作
-  this.inOrderTraverse = function(callback) {
+  this.inOrderTraverse = function (callback) {
     inOrderTraverseNode(root, callback)
   }
 
@@ -129,7 +130,7 @@ function BinarySearchTree() {
   }
 
   // 先序遍历 顺序自己、子树左、子树右 应用：结构化文档
-  this.prevOrderTraverse = function(callback) {
+  this.prevOrderTraverse = function (callback) {
     prevOrderTraverse(root, callback)
   }
 
@@ -142,7 +143,7 @@ function BinarySearchTree() {
   }
 
   // 后序遍历 先访问节点的后代节点再访问本身 顺序：子树左、右、自己 应用：计算一个目录和他的子目录中所有文件所占空间大小
-  this.postOrderTraverse = function(callback) {
+  this.postOrderTraverse = function (callback) {
     postOrderTraverseNode(root, callback)
   }
 

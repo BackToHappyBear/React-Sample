@@ -16,6 +16,6 @@ function Counter(props) {
   )
 }
 
-export default function() {
+export default function UnkownPerformance() {
   return <Counter logger={<Logger label="counter" />} />
 }

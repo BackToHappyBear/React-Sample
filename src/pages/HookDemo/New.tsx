@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-export default function() {
+export default function New() {
   const [firstname, handleFirstnameChange] = useFormValue('')
   const [lastname, handleLastnameChange] = useFormValue('')
 

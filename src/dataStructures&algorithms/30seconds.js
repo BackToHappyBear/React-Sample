@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-use-before-define */
+/* eslint-disable */
 // TITLE: pipeAsyncFunctions
 const sum = pipeAsyncFunctions(
   x => x + 1,

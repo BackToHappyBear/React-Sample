@@ -1,25 +1,24 @@
-import { mkdir } from 'fs'
-
+/* eslint-disable no-unused-vars */
 function ArrayList() {
   var array = []
 
-  var swap = function(index1, index2) {
+  var swap = function (index1, index2) {
     ;[array[index1], array[index2]] = [array[index2], array[index1]]
   }
 
-  this.insert = function(item) {
+  this.insert = function (item) {
     array.push(item)
   }
 
-  this.toString = function() {
+  this.toString = function () {
     return array.toString()
   }
-  this.array = function() {
+  this.array = function () {
     return array
   }
 
   // O(n^2)
-  this.bubbleSort = function() {
+  this.bubbleSort = function () {
     let length = array.length
     for (let i = 0; i < length - 1; i++) {
       for (let j = 0; j < length - i - 1; j++) {
@@ -31,7 +30,7 @@ function ArrayList() {
   }
 
   // O(n^2)
-  this.selectionSort = function() {
+  this.selectionSort = function () {
     let length = array.length
     let indexMin
 
@@ -48,13 +47,13 @@ function ArrayList() {
     }
   }
 
-  this.insertionSort = function() {}
+  this.insertionSort = function () {}
 
   // Firefox sort 方法 O(nlog^n)
-  this.mergSort = function() {}
+  this.mergSort = function () {}
 
   // Chrome sort 方法 O(nlog^n)
-  this.quickSort = function() {
+  this.quickSort = function () {
     quick(array, 0, array.length)
   }
 
@@ -94,7 +93,7 @@ function ArrayList() {
   }
 
   // 二分搜索
-  this.binarySearch = function(item) {
+  this.binarySearch = function (item) {
     this.quickSort()
 
     var low = 0

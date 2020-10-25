@@ -44,4 +44,4 @@ export const useEventListener02 = (
   }, [listener, options, target, type])
 }
 
-useEventListener02(window, 'resize', function() {})
+// useEventListener02(window, 'resize', function() {})
