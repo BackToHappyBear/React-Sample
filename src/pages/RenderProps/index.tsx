@@ -16,7 +16,7 @@ const RenderProps = () => {
 
   return (
     <div className="App">
-      <h1>Render Props</h1>
+      <h1>Render Props1</h1>
       <h2>Move the mouse around!</h2>
       <MousePosition
         render={(mousePosition: MousePositon) => (
